@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dkcy4qwxeer0j"]
+
+[ext_resource type="Script" path="res://data/items/item_data.gd" id="1_l4rkc"]
+
+[resource]
+script = ExtResource("1_l4rkc")
+id = "sword"
+name = "Short Sword"
+description = "An elegant weapon, from a less civilised time"
+stackable = false
+category = "weapon"
