@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dkqpq2w7gslum"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dkqpq2w7gslum"]
 
 [ext_resource type="Script" path="res://data/items/item_data.gd" id="1_vh1bx"]
+[ext_resource type="Texture2D" uid="uid://cxwj1wqoxj4ec" path="res://resources/textures/item_slot_bg.png" id="2_1iptu"]
 
 [resource]
 script = ExtResource("1_vh1bx")
@@ -8,4 +9,5 @@ id = "shield"
 name = "Wooden Shield"
 description = "Protect yourself from everything except fire and splinters"
 stackable = false
+texture = ExtResource("2_1iptu")
 category = "weapon"

@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpq22f1kj6b75"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rkpk0"]
-load_path = "res://.godot/imported/item_slot_bg.png-49d2fcb67bbbefb7abe91d34695998bc.ctex"
+[ext_resource type="Script" path="res://scenes/InventorySlot.gd" id="1_8bph1"]
 
 [node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_8bph1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -17,11 +17,11 @@ theme_override_constants/margin_bottom = 4
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = SubResource("CompressedTexture2D_rkpk0")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="QuantityLabel" type="Label" parent="."]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

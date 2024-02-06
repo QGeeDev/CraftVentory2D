@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dlv5u83nalt57"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dlv5u83nalt57"]
 
 [ext_resource type="Script" path="res://data/items/item_data.gd" id="1_c3u2c"]
+[ext_resource type="Texture2D" uid="uid://boahwy5p0np0v" path="res://icon.svg" id="2_1kue0"]
 
 [resource]
 script = ExtResource("1_c3u2c")
@@ -8,4 +9,5 @@ id = "bread"
 name = "Loaf of bread"
 description = "Like a glutenous pillow"
 stackable = true
+texture = ExtResource("2_1kue0")
 category = "food"

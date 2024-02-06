@@ -15,3 +15,6 @@ func create_item_grid(slots : Array[InventorySlot]) -> void:
 	for slot in slots:
 		var new_slot = INVENTORY_SLOT.instantiate()
 		item_grid.add_child(new_slot)
+		
+		if slot != null:
+			new_slot.set_slot(slot)
