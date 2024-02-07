@@ -4,9 +4,8 @@ const INVENTORY_SLOT = preload("res://scenes/InventorySlot.tscn")
 
 @onready var item_grid = $MarginContainer/ItemGrid
 
-func _ready():
-	var inventory_data = preload("res://examples/resources/inventory/ExampleInventory.tres")
-	create_item_grid(inventory_data.inventory_slots);
+func set_inventory_data(inventory_data: InventoryData) -> void:
+	create_item_grid(inventory_data.inventory_slots)
 
 func create_item_grid(slots : Array[InventorySlot]) -> void:
 	for child in item_grid.get_children():

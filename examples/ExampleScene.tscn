@@ -1,18 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://se1njaroli4t"]
+[gd_scene load_steps=6 format=3 uid="uid://se1njaroli4t"]
 
+[ext_resource type="Script" path="res://examples/ExampleScene.gd" id="1_lm27m"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory.tscn" id="1_sd6cw"]
+[ext_resource type="Script" path="res://examples/InventoryInterface.gd" id="2_6i7ey"]
+[ext_resource type="PackedScene" uid="uid://6hllgdw8u3y4" path="res://examples/LootChest.tscn" id="2_ump08"]
+[ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="3_ctrg2"]
 
 [node name="ExampleScene" type="Node2D"]
+script = ExtResource("1_lm27m")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_6i7ey")
 
 [node name="Inventory" parent="UI/InventoryInterface" instance=ExtResource("1_sd6cw")]
 layout_mode = 0
@@ -20,3 +27,6 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 26.0
 offset_bottom = 26.0
+
+[node name="LootChest" parent="." instance=ExtResource("2_ump08")]
+inventory_data = ExtResource("3_ctrg2")
