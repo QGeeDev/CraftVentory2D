@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://se1njaroli4t"]
+[gd_scene load_steps=8 format=3 uid="uid://se1njaroli4t"]
 
 [ext_resource type="Script" path="res://examples/ExampleScene.gd" id="1_lm27m"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory.tscn" id="1_sd6cw"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://6hllgdw8u3y4" path="res://examples/LootChest.tscn" id="2_ump08"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="3_ctrg2"]
 [ext_resource type="Texture2D" uid="uid://dwb280vij5h6g" path="res://examples/resources/textures/Chest.png" id="6_yt2xr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vofo"]
+size = Vector2(256, 256)
 
 [node name="ExampleScene" type="Node2D"]
 script = ExtResource("1_lm27m")
@@ -35,3 +38,10 @@ inventory_data = ExtResource("3_ctrg2")
 [node name="Sprite2D" type="Sprite2D" parent="LootChest"]
 position = Vector2(538, 312)
 texture = ExtResource("6_yt2xr")
+
+[node name="Area2D" type="Area2D" parent="LootChest/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LootChest/Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_5vofo")
+
+[connection signal="input_event" from="LootChest/Sprite2D/Area2D" to="LootChest" method="_on_area_2d_input_event"]

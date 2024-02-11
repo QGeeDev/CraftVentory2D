@@ -13,6 +13,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func _unhandled_input(event: InputEvent) -> void:
-	if(Input.is_action_just_pressed("toggle_inventory_view")):
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.is_pressed():
 		toggle_inventory_visible.emit()
