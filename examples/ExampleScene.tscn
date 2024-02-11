@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://se1njaroli4t"]
+[gd_scene load_steps=9 format=3 uid="uid://se1njaroli4t"]
 
 [ext_resource type="Script" path="res://examples/ExampleScene.gd" id="1_lm27m"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory.tscn" id="1_sd6cw"]
 [ext_resource type="Script" path="res://examples/InventoryInterface.gd" id="2_6i7ey"]
 [ext_resource type="PackedScene" uid="uid://6hllgdw8u3y4" path="res://examples/LootChest.tscn" id="2_ump08"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="3_ctrg2"]
+[ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/InventorySlot.tscn" id="4_ckncq"]
 [ext_resource type="Texture2D" uid="uid://dwb280vij5h6g" path="res://examples/resources/textures/Chest.png" id="6_yt2xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vofo"]
@@ -31,6 +32,16 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 26.0
 offset_bottom = 26.0
+
+[node name="SelectedSlot" parent="UI/InventoryInterface" instance=ExtResource("4_ckncq")]
+visible = false
+modulate = Color(1, 1, 1, 0.498039)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 74.0
+offset_bottom = 74.0
 
 [node name="LootChest" parent="." instance=ExtResource("2_ump08")]
 inventory_data = ExtResource("3_ctrg2")
