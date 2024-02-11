@@ -5,6 +5,9 @@ extends PanelContainer
 
 var slot_data: InventorySlot
 
+func _on_gui_input(event: InputEvent) -> void:
+	pass
+
 func set_slot(slotData: InventorySlot) -> void:
 	var item_data = slotData.item_data
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dkcy4qwxeer0j"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dkcy4qwxeer0j"]
 
 [ext_resource type="Script" path="res://data/items/item_data.gd" id="1_l4rkc"]
+[ext_resource type="Texture2D" uid="uid://ijwq6d43gaun" path="res://examples/resources/textures/Sword.png" id="2_hrkxh"]
 
 [resource]
 script = ExtResource("1_l4rkc")
@@ -8,4 +9,5 @@ id = "sword"
 name = "Short Sword"
 description = "An elegant weapon, from a less civilised time"
 stackable = false
+texture = ExtResource("2_hrkxh")
 category = "weapon"
