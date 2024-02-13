@@ -22,3 +22,5 @@ func set_slot(slotData: InventorySlot) -> void:
 	if(slotData.quantity > 1):
 		quantity_label.text = "x%s" % slotData.quantity
 		quantity_label.show()
+	else:
+		quantity_label.hide()

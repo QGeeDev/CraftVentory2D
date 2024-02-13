@@ -5,6 +5,7 @@ const INVENTORY_SLOT = preload("res://scenes/InventorySlot.tscn")
 @onready var item_grid = $MarginContainer/ItemGrid
 
 func set_inventory_data(inventory_data: InventoryData) -> void:
+	inventory_data.inventory_updated.connect(create_item_grid)
 	create_item_grid(inventory_data)
 
 func create_item_grid(inventory_data: InventoryData) -> void:

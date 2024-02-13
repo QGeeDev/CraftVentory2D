@@ -17,6 +17,8 @@ func _on_inventory_interact(inventory_data: InventoryData, index: int, button: i
 	match[held_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
 			held_slot_data = inventory_data.get_slot_data(index)
+		[_, MOUSE_BUTTON_LEFT]:
+			held_slot_data = inventory_data.set_slot_data(held_slot_data, index)
 			
 	update_selected_slot()
 	
