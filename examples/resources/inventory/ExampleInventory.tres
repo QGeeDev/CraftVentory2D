@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=9 format=3 uid="uid://0l3f11er74q8"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=10 format=3 uid="uid://0l3f11er74q8"]
 
 [ext_resource type="Resource" uid="uid://dkcy4qwxeer0j" path="res://examples/resources/items/Sword.tres" id="1_p1i5l"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="1_wg3sl"]
@@ -21,6 +21,11 @@ script = ExtResource("2_iyo08")
 item_data = ExtResource("4_c0wtj")
 quantity = 3
 
+[sub_resource type="Resource" id="Resource_qsbqh"]
+script = ExtResource("2_iyo08")
+item_data = ExtResource("4_c0wtj")
+quantity = 2
+
 [resource]
 script = ExtResource("1_wg3sl")
-inventory_slots = Array[ExtResource("2_iyo08")]([SubResource("Resource_kqy0u"), SubResource("Resource_50pj6"), SubResource("Resource_751eq"), null, null, null])
+inventory_slots = Array[ExtResource("2_iyo08")]([SubResource("Resource_kqy0u"), SubResource("Resource_50pj6"), SubResource("Resource_751eq"), SubResource("Resource_qsbqh"), null, null])

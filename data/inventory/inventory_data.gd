@@ -21,10 +21,14 @@ func get_slot_data(index: int) -> InventorySlot:
 		
 func set_slot_data(slot_data: InventorySlot, index:int) -> InventorySlot:
 	var slot = inventory_slots[index]
-	inventory_slots[index] = slot_data
-	inventory_updated.emit(self)
 	
-	if slot != null:
-		return slot
+	var to_return: InventorySlot
+	if(slot != null and slot.can_merge_fully(slot_data)):
+		slot.merge_inventory_slot(slot_data)
 	else:
-		return null
+		inventory_slots[index] = slot_data
+		to_return = slot
+		
+	inventory_updated.emit(self)
+	return to_return
+

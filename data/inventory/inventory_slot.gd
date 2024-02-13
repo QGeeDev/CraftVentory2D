@@ -12,3 +12,11 @@ func set_quantity(val: int) -> void:
 	if quantity > 1 and not item_data.stackable:
 		quantity = 1;
 		push_warning("%s not stackable, setting quantity to 1" % item_data.name);
+
+func can_merge_fully(inbound_slot_data: InventorySlot) -> bool:
+	return item_data == inbound_slot_data.item_data \
+		and item_data.stackable \
+		and quantity + inbound_slot_data.quantity <= MAX_STACK_SIZE
+		
+func merge_inventory_slot(inbound_slot_data: InventorySlot) -> void: 
+	quantity += inbound_slot_data.quantity
