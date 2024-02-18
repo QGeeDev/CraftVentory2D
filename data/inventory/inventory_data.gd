@@ -31,4 +31,17 @@ func set_slot_data(slot_data: InventorySlot, index:int) -> InventorySlot:
 		
 	inventory_updated.emit(self)
 	return to_return
-
+	
+func create_single_slot_data(slot_data: InventorySlot, index: int) -> InventorySlot:
+	var slot = inventory_slots[index]
+	
+	if slot == null:
+		inventory_slots[index] = slot_data.create_single_slot_data()
+	elif slot.can_merge(slot_data):
+		slot.merge_inventory_slot(slot_data.create_single_slot_data())
+	
+	inventory_updated.emit(self)
+	
+	if slot_data.quantity > 0:
+		return slot_data
+	return null

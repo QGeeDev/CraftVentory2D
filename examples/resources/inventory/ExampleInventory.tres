@@ -19,12 +19,12 @@ quantity = 1
 [sub_resource type="Resource" id="Resource_751eq"]
 script = ExtResource("2_iyo08")
 item_data = ExtResource("4_c0wtj")
-quantity = 3
+quantity = 63
 
 [sub_resource type="Resource" id="Resource_qsbqh"]
 script = ExtResource("2_iyo08")
 item_data = ExtResource("4_c0wtj")
-quantity = 2
+quantity = 5
 
 [resource]
 script = ExtResource("1_wg3sl")
