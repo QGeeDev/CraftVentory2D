@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://6hllgdw8u3y4"]
+[gd_scene load_steps=4 format=3 uid="uid://6hllgdw8u3y4"]
 
 [ext_resource type="Script" path="res://examples/LootChest.gd" id="1_d2sp8"]
+[ext_resource type="Texture2D" uid="uid://dwb280vij5h6g" path="res://examples/resources/textures/Chest.png" id="2_yxafr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6k3s"]
+size = Vector2(256, 256)
 
 [node name="LootChest" type="Node2D"]
 script = ExtResource("1_d2sp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yxafr")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_m6k3s")

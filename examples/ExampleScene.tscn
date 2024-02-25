@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://se1njaroli4t"]
+[gd_scene load_steps=10 format=3 uid="uid://se1njaroli4t"]
 
 [ext_resource type="Script" path="res://examples/ExampleScene.gd" id="1_lm27m"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory.tscn" id="1_sd6cw"]
@@ -6,18 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://6hllgdw8u3y4" path="res://examples/LootChest.tscn" id="2_ump08"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="3_ctrg2"]
 [ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/InventorySlot.tscn" id="4_ckncq"]
-[ext_resource type="Texture2D" uid="uid://dwb280vij5h6g" path="res://examples/resources/textures/Chest.png" id="6_yt2xr"]
+[ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="6_neu8q"]
+[ext_resource type="Script" path="res://examples/PlayerData.gd" id="8_3n3da"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vofo"]
-size = Vector2(256, 256)
+[sub_resource type="Resource" id="Resource_2c88t"]
+script = ExtResource("6_neu8q")
+inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([])
 
 [node name="ExampleScene" type="Node2D"]
+position = Vector2(1102, 149)
 script = ExtResource("1_lm27m")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
+[node name="PlayerInventoryInterface" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,15 +28,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6i7ey")
 
-[node name="Inventory" parent="UI/InventoryInterface" instance=ExtResource("1_sd6cw")]
+[node name="Inventory" parent="UI/PlayerInventoryInterface" instance=ExtResource("1_sd6cw")]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 26.0
 offset_bottom = 26.0
 
-[node name="SelectedSlot" parent="UI/InventoryInterface" instance=ExtResource("4_ckncq")]
-visible = false
+[node name="SelectedSlot" parent="UI/PlayerInventoryInterface" instance=ExtResource("4_ckncq")]
 modulate = Color(1, 1, 1, 0.498039)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -44,15 +45,9 @@ offset_right = 74.0
 offset_bottom = 74.0
 
 [node name="LootChest" parent="." instance=ExtResource("2_ump08")]
+position = Vector2(-129, 14)
+inventory_data = SubResource("Resource_2c88t")
+
+[node name="PlayerData" type="Node" parent="."]
+script = ExtResource("8_3n3da")
 inventory_data = ExtResource("3_ctrg2")
-
-[node name="Sprite2D" type="Sprite2D" parent="LootChest"]
-position = Vector2(538, 312)
-texture = ExtResource("6_yt2xr")
-
-[node name="Area2D" type="Area2D" parent="LootChest/Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LootChest/Sprite2D/Area2D"]
-shape = SubResource("RectangleShape2D_5vofo")
-
-[connection signal="input_event" from="LootChest/Sprite2D/Area2D" to="LootChest" method="_on_area_2d_input_event"]
