@@ -32,3 +32,6 @@ func update_selected_slot() -> void:
 		held_slot.show()
 	else:
 		held_slot.hide()
+		
+func set_external_inventory(external_inventory_owner) -> void:
+	print(external_inventory_owner)
