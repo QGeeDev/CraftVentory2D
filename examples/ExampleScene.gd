@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var inventory_interface: Control = $UI/PlayerInventoryInterface
+@onready var inventory_interface: Control = $UI/InventoryInterface
 @onready var player_data = $PlayerData
 
 
@@ -17,6 +17,8 @@ func _ready():
 func toggle_inventory_view(external_inventory_owner = null) -> void:
 	inventory_interface.visible = !inventory_interface.visible
 	
-	if external_inventory_owner:
+	if external_inventory_owner and inventory_interface.visible:
 		inventory_interface.set_external_inventory(external_inventory_owner)
+	else:
+		inventory_interface.clear_external_inventory()
 

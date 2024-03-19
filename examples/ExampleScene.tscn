@@ -40,7 +40,7 @@ inventory_data = ExtResource("3_ctrg2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="PlayerInventoryInterface" type="Control" parent="UI"]
+[node name="InventoryInterface" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -51,14 +51,14 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2_6i7ey")
 
-[node name="Inventory" parent="UI/PlayerInventoryInterface" instance=ExtResource("1_sd6cw")]
+[node name="Inventory" parent="UI/InventoryInterface" instance=ExtResource("1_sd6cw")]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 26.0
 offset_bottom = 26.0
 
-[node name="ExternalInventory" parent="UI/PlayerInventoryInterface" instance=ExtResource("1_sd6cw")]
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("1_sd6cw")]
 visible = false
 layout_mode = 0
 offset_left = 579.0
@@ -66,7 +66,7 @@ offset_top = 324.0
 offset_right = 595.0
 offset_bottom = 340.0
 
-[node name="SelectedSlot" parent="UI/PlayerInventoryInterface" instance=ExtResource("4_ckncq")]
+[node name="SelectedSlot" parent="UI/InventoryInterface" instance=ExtResource("4_ckncq")]
 modulate = Color(1, 1, 1, 0.498039)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
