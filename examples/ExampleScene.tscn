@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://se1njaroli4t"]
+[gd_scene load_steps=15 format=3 uid="uid://se1njaroli4t"]
 
 [ext_resource type="Script" path="res://examples/ExampleScene.gd" id="1_lm27m"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory.tscn" id="1_sd6cw"]
@@ -6,16 +6,37 @@
 [ext_resource type="PackedScene" uid="uid://6hllgdw8u3y4" path="res://examples/LootChest.tscn" id="2_ump08"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="3_ctrg2"]
 [ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/InventorySlot.tscn" id="4_ckncq"]
+[ext_resource type="Resource" uid="uid://dlv5u83nalt57" path="res://examples/resources/items/Bread.tres" id="6_bpe7a"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="6_neu8q"]
+[ext_resource type="Script" path="res://data/inventory/inventory_slot.gd" id="7_cverh"]
 [ext_resource type="Script" path="res://examples/PlayerData.gd" id="8_3n3da"]
+[ext_resource type="Resource" uid="uid://dkqpq2w7gslum" path="res://examples/resources/items/Shield.tres" id="8_sh5cv"]
+
+[sub_resource type="Resource" id="Resource_rwj65"]
+script = ExtResource("7_cverh")
+item_data = ExtResource("6_bpe7a")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_d5a8k"]
+script = ExtResource("7_cverh")
+item_data = ExtResource("8_sh5cv")
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_2c88t"]
 script = ExtResource("6_neu8q")
-inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null, null, null, null, null, null])
+inventory_slots = Array[ExtResource("7_cverh")]([SubResource("Resource_rwj65"), SubResource("Resource_d5a8k"), null, null])
 
 [node name="ExampleScene" type="Node2D"]
 position = Vector2(1102, 149)
 script = ExtResource("1_lm27m")
+
+[node name="LootChest" parent="." instance=ExtResource("2_ump08")]
+position = Vector2(-129, 14)
+inventory_data = SubResource("Resource_2c88t")
+
+[node name="PlayerData" type="Node2D" parent="."]
+script = ExtResource("8_3n3da")
+inventory_data = ExtResource("3_ctrg2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -37,6 +58,14 @@ offset_top = 10.0
 offset_right = 26.0
 offset_bottom = 26.0
 
+[node name="ExternalInventory" parent="UI/PlayerInventoryInterface" instance=ExtResource("1_sd6cw")]
+visible = false
+layout_mode = 0
+offset_left = 579.0
+offset_top = 324.0
+offset_right = 595.0
+offset_bottom = 340.0
+
 [node name="SelectedSlot" parent="UI/PlayerInventoryInterface" instance=ExtResource("4_ckncq")]
 modulate = Color(1, 1, 1, 0.498039)
 self_modulate = Color(1, 1, 1, 0)
@@ -45,11 +74,3 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 74.0
 offset_bottom = 74.0
-
-[node name="LootChest" parent="." instance=ExtResource("2_ump08")]
-position = Vector2(-129, 14)
-inventory_data = SubResource("Resource_2c88t")
-
-[node name="PlayerData" type="Node2D" parent="."]
-script = ExtResource("8_3n3da")
-inventory_data = ExtResource("3_ctrg2")
