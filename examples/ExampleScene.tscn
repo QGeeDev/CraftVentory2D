@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_2c88t"]
 script = ExtResource("6_neu8q")
-inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([])
+inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null, null, null, null, null, null])
 
 [node name="ExampleScene" type="Node2D"]
 position = Vector2(1102, 149)
@@ -27,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("2_6i7ey")
 
 [node name="Inventory" parent="UI/PlayerInventoryInterface" instance=ExtResource("1_sd6cw")]
@@ -49,6 +50,6 @@ offset_bottom = 74.0
 position = Vector2(-129, 14)
 inventory_data = SubResource("Resource_2c88t")
 
-[node name="PlayerData" type="Node" parent="."]
+[node name="PlayerData" type="Node2D" parent="."]
 script = ExtResource("8_3n3da")
 inventory_data = ExtResource("3_ctrg2")
