@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://examples/InventoryInterface.gd" id="2_6i7ey"]
 [ext_resource type="PackedScene" uid="uid://6hllgdw8u3y4" path="res://examples/LootChest.tscn" id="2_ump08"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="3_ctrg2"]
+[ext_resource type="Resource" uid="uid://4wbswyhysq52" path="res://examples/resources/items/Bread.tres" id="3_yq42b"]
 [ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/InventorySlot.tscn" id="4_ckncq"]
-[ext_resource type="Resource" uid="uid://dlv5u83nalt57" path="res://examples/resources/items/Bread.tres" id="6_bpe7a"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="6_neu8q"]
 [ext_resource type="Script" path="res://data/inventory/inventory_slot.gd" id="7_cverh"]
 [ext_resource type="Script" path="res://examples/PlayerData.gd" id="8_3n3da"]
@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_rwj65"]
 script = ExtResource("7_cverh")
-item_data = ExtResource("6_bpe7a")
+item_data = ExtResource("3_yq42b")
 quantity = 10
 
 [sub_resource type="Resource" id="Resource_d5a8k"]

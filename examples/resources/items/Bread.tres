@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dlv5u83nalt57"]
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=3 format=3 uid="uid://4wbswyhysq52"]
 
-[ext_resource type="Script" path="res://data/items/item_data.gd" id="1_c3u2c"]
-[ext_resource type="Texture2D" uid="uid://dnogthfu34ako" path="res://examples/resources/textures/Bread.png" id="2_bnr6x"]
+[ext_resource type="Script" path="res://data/items/item_data_consumable.gd" id="1_i2126"]
+[ext_resource type="Texture2D" uid="uid://dnogthfu34ako" path="res://examples/resources/textures/Bread.png" id="2_1ngdl"]
 
 [resource]
-script = ExtResource("1_c3u2c")
+script = ExtResource("1_i2126")
 id = "bread"
 name = "Loaf of bread"
 description = "Like a glutenous pillow"
 stackable = true
-texture = ExtResource("2_bnr6x")
+texture = ExtResource("2_1ngdl")
 category = "food"
