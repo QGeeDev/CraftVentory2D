@@ -7,8 +7,3 @@ extends AbstractItem
 @export var stackable: bool = false;
 
 @export var texture: Texture2D;
-
-
-func use(target) -> void:
-	#To be used by inheriting classes such as consumableItemData
-	pass

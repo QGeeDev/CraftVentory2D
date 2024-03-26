@@ -37,15 +37,13 @@ func use_slot_data(index) -> void:
 	
 	if not slot_data:
 		return
-		
-	print_debug(slot_data.item_data.name)
 	
 	if slot_data.item_data is ItemDataConsumable:
 		slot_data.quantity -= 1
 		if slot_data.quantity < 1:
 			inventory_slots[index] = null
-	
-	inventory_updated.emit(self)
+		inventory_updated.emit(self)
+		slot_data.item_data.use()
 	
 	
 func create_single_slot_data(slot_data: InventorySlot, index: int) -> InventorySlot:
