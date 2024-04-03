@@ -1,3 +1,5 @@
 [gd_scene format=3 uid="uid://jm5kjbljcrti"]
 
 [node name="ExampleCraftingScene" type="Node2D"]
+
+[node name="CraftingArea" type="Node2D" parent="."]
