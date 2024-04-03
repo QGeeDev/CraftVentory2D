@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Craftventory"
-run/main_scene="res://examples/ExampleScene.tscn"
+run/main_scene="res://examples/Inventory_Only/ExampleScene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
