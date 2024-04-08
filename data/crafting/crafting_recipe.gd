@@ -1,5 +1,5 @@
 class_name CraftingRecipe
 extends Resource
 
-@export var output: ItemData
-@export var components: Array[AbstractItem]
+@export var output: InventorySlot
+@export var components: Array[InventorySlot]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cf8n217gv8qs5"]
+
+[ext_resource type="Script" path="res://data/items/item_data.gd" id="1_gjh80"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j5j5f"]
+load_path = "res://.godot/imported/tilemap.png-f3008077134100e10a4fc2b739e0450c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxkgc"]
+atlas = SubResource("CompressedTexture2D_j5j5f")
+region = Rect2(114, 133, 18, 18)
+
+[resource]
+script = ExtResource("1_gjh80")
+name = "Wooden plank"
+description = "Freshly sliced tree"
+stackable = true
+texture = SubResource("AtlasTexture_yxkgc")
+id = "wooden_plank"

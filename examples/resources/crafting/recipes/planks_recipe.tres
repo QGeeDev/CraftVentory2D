@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=8 format=3 uid="uid://b87thmbgyhcwf"]
+
+[ext_resource type="Resource" uid="uid://bi8rw3wivnsar" path="res://examples/resources/items/Log.tres" id="1_2skm7"]
+[ext_resource type="Script" path="res://data/crafting/crafting_recipe.gd" id="1_irflw"]
+[ext_resource type="Script" path="res://data/inventory/inventory_slot.gd" id="2_8nwfk"]
+[ext_resource type="Resource" uid="uid://cf8n217gv8qs5" path="res://examples/resources/items/Planks.tres" id="3_tda43"]
+
+[sub_resource type="Resource" id="Resource_2t2yi"]
+script = ExtResource("2_8nwfk")
+item_data = ExtResource("1_2skm7")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_202fe"]
+script = ExtResource("2_8nwfk")
+item_data = ExtResource("1_2skm7")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_m0afa"]
+script = ExtResource("2_8nwfk")
+item_data = ExtResource("3_tda43")
+quantity = 4
+
+[resource]
+script = ExtResource("1_irflw")
+output = SubResource("Resource_m0afa")
+components = Array[ExtResource("2_8nwfk")]([SubResource("Resource_2t2yi"), SubResource("Resource_202fe")])
