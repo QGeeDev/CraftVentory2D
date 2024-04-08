@@ -1,7 +1,7 @@
 extends ItemData
 class_name ItemDataConsumable
 
-var attributes: Dictionary = {}
+@export var attributes: Dictionary = {}
 
 # This is an example of a usable object, such as health potion, weapon, etc
 # To do this, 
