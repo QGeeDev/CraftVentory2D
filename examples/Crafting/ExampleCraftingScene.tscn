@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://jm5kjbljcrti"]
+[gd_scene load_steps=2 format=3 uid="uid://jm5kjbljcrti"]
+
+[ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/crafting/CraftingStation.tscn" id="1_av6k1"]
 
 [node name="ExampleCraftingScene" type="Node2D"]
 
-[node name="CraftingArea" type="Node2D" parent="."]
+[node name="CraftingStation" parent="." instance=ExtResource("1_av6k1")]
+position = Vector2(866, 136)
