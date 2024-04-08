@@ -56,3 +56,5 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 74.0
 offset_bottom = 74.0
+
+[connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="_on_crafting_station_toggle_crafting_visible"]
