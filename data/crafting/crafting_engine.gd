@@ -1,7 +1,7 @@
 extends Resource
 class_name CraftingEngine
 
-var _recipes: Array[CraftingRecipe] = []
+@export var _recipes: Array[CraftingRecipe] = []
 
 func add_recipe(recipe: CraftingRecipe) -> void:
 	_recipes.append(recipe)

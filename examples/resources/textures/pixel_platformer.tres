@@ -1,8 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dkfmif847kxb3"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j5j5f"]
-load_path = "res://.godot/imported/tilemap.png-f3008077134100e10a4fc2b739e0450c.ctex"
+[ext_resource type="Texture2D" uid="uid://j4u3vdvhdghi" path="res://examples/resources/textures/pixel_platformer_tilemap.png" id="1_xr475"]
 
 [resource]
-atlas = SubResource("CompressedTexture2D_j5j5f")
+atlas = ExtResource("1_xr475")
 region = Rect2(342, 114, 18, 18)
