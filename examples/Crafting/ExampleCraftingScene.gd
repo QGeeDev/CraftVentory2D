@@ -5,13 +5,18 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	inventory_interface.set_inventory_data(player_data.inventory_data)
+	player_data.toggle_inventory_visible.connect(toggle_inventory_view)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
-func _on_crafting_station_toggle_crafting_visible(external_inventory_owner):
-	print_debug("Interacted with crafting table")
+func toggle_inventory_view(external_inventory_owner = null) -> void:
+	inventory_interface.visible = !inventory_interface.visible
+	
+	if external_inventory_owner and inventory_interface.visible:
+		inventory_interface.set_external_inventory(external_inventory_owner)
+	else:
+		inventory_interface.clear_external_inventory()

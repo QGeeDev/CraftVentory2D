@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://data/items/item_data.gd" id="1_gjh80"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j5j5f"]
-load_path = "res://.godot/imported/tilemap.png-f3008077134100e10a4fc2b739e0450c.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxkgc"]
 atlas = SubResource("CompressedTexture2D_j5j5f")
