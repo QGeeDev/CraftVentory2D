@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/crafting/CraftingStation.tscn" id="1_av6k1"]
 [ext_resource type="Script" path="res://examples/crafting/ExampleCraftingScene.gd" id="1_s1k5w"]
-[ext_resource type="Resource" path="res://examples/resources/crafting/ExampleCraftingEngine.tres" id="2_ng3co"]
+[ext_resource type="Resource" uid="uid://djq8vifmbqcba" path="res://examples/resources/crafting/ExampleCraftingEngine.tres" id="2_ng3co"]
 [ext_resource type="Script" path="res://examples/inventory_only/PlayerData.gd" id="3_3hgpi"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="4_oflbw"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="4_y8ou3"]
@@ -63,5 +63,5 @@ offset_top = 10.0
 offset_right = 74.0
 offset_bottom = 74.0
 
-[connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="_on_crafting_station_toggle_crafting_visible"]
 [connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="toggle_inventory_view"]
+[connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="_on_crafting_station_toggle_crafting_visible"]
