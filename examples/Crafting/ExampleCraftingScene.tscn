@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jm5kjbljcrti"]
+[gd_scene load_steps=15 format=3 uid="uid://jm5kjbljcrti"]
 
 [ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/Crafting/CraftingStation.tscn" id="1_av6k1"]
 [ext_resource type="Script" path="res://examples/crafting/ExampleCraftingScene.gd" id="1_s1k5w"]
@@ -6,14 +6,21 @@
 [ext_resource type="Script" path="res://examples/inventory_only/PlayerData.gd" id="3_3hgpi"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="4_oflbw"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="4_y8ou3"]
+[ext_resource type="Resource" uid="uid://dkcy4qwxeer0j" path="res://examples/resources/items/Sword.tres" id="5_02pty"]
 [ext_resource type="Script" path="res://examples/inventory_only/InventoryInterface.gd" id="5_dn6y0"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory/InventoryContainer.tscn" id="6_b2gqk"]
-[ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/Inventory/InventorySlot.tscn" id="7_h6px2"]
+[ext_resource type="Script" path="res://data/inventory/inventory_slot.gd" id="6_l0328"]
+[ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/Inventory/InventorySlotPanel.tscn" id="7_h6px2"]
 [ext_resource type="PackedScene" uid="uid://cf8inapkeevke" path="res://scenes/Crafting/CraftingStationContainer.tscn" id="10_7i7gy"]
 
 [sub_resource type="Resource" id="Resource_2k73y"]
 script = ExtResource("4_oflbw")
-inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null, null, null])
+inventory_slots = Array[ExtResource("6_l0328")]([null, null, null])
+
+[sub_resource type="Resource" id="Resource_vusr4"]
+script = ExtResource("6_l0328")
+item_data = ExtResource("5_02pty")
+quantity = 1
 
 [node name="ExampleCraftingScene" type="Node2D"]
 script = ExtResource("1_s1k5w")
@@ -22,6 +29,7 @@ script = ExtResource("1_s1k5w")
 position = Vector2(866, 136)
 engine = ExtResource("2_ng3co")
 inventory_data = SubResource("Resource_2k73y")
+result_slot = SubResource("Resource_vusr4")
 
 [node name="PlayerData" type="Node2D" parent="."]
 script = ExtResource("3_3hgpi")
@@ -64,7 +72,6 @@ offset_right = 74.0
 offset_bottom = 74.0
 
 [node name="CraftingStation" parent="UI/InventoryInterface" instance=ExtResource("10_7i7gy")]
-visible = false
 layout_mode = 0
 offset_left = 712.0
 offset_top = 238.0

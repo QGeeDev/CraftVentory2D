@@ -2,7 +2,7 @@ extends Node2D
 
 @export var engine: CraftingEngine
 @export var inventory_data: InventoryData
-@export var crafting_result: InventorySlot
+@export var result_slot: InventorySlot
 
 signal toggle_crafting_visible(_crafting_station_owner)
 

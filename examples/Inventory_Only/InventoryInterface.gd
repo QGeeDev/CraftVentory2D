@@ -22,6 +22,7 @@ func _on_inventory_interact(inventory_data: InventoryData, slot_panel: Inventory
 		[null, MOUSE_BUTTON_LEFT]:
 			held_slot_data = inventory_data.get_slot_data(index)
 		[_, MOUSE_BUTTON_LEFT]:
+			print_debug("Is read only %s" % slot_panel.read_only)
 			if(slot_panel.read_only):
 				print_debug("Readonly flag triggered")
 				return
@@ -59,6 +60,7 @@ func set_crafting_station(_crafting_station_owner) -> void:
 	crafting_station_owner = _crafting_station_owner
 	var inventory_data = crafting_station_owner.inventory_data
 	inventory_data.inventory_interact.connect(_on_inventory_interact)
+	inventory_data.inventory_slots.append(crafting_station_owner.result_slot)
 	crafting_station.set_inventory_data(inventory_data)
 	crafting_station.show()
 
