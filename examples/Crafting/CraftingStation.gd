@@ -4,7 +4,7 @@ extends Node2D
 @export var inventory_data: InventoryData
 @export var crafting_result: InventorySlot
 
-signal toggle_crafting_visible(external_inventory_owner)
+signal toggle_crafting_visible(_crafting_station_owner)
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton \

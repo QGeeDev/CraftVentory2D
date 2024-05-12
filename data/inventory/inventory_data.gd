@@ -1,13 +1,13 @@
 class_name InventoryData
 extends Resource
 
-signal inventory_interact(inventory_data: InventoryData, index: int, button: int)
+signal inventory_interact(inventory_data: InventoryData, slot_panel: InventorySlotPanel, index: int, button: int)
 signal inventory_updated(inventory_data: InventoryData)
 
 @export var inventory_slots: Array[InventorySlot] = [];
 
-func on_slot_clicked(index: int, button: int) -> void:
-	inventory_interact.emit(self, index, button)
+func on_slot_clicked(slotPanel: InventorySlotPanel, index: int, button: int) -> void:
+	inventory_interact.emit(self, slotPanel, index, button)
 	
 func get_slot_data(index: int) -> InventorySlot:
 	var slot = inventory_slots[index]

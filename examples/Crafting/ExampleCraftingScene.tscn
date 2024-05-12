@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://jm5kjbljcrti"]
+[gd_scene load_steps=12 format=3 uid="uid://jm5kjbljcrti"]
 
-[ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/crafting/CraftingStation.tscn" id="1_av6k1"]
+[ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/Crafting/CraftingStation.tscn" id="1_av6k1"]
 [ext_resource type="Script" path="res://examples/crafting/ExampleCraftingScene.gd" id="1_s1k5w"]
 [ext_resource type="Resource" uid="uid://djq8vifmbqcba" path="res://examples/resources/crafting/ExampleCraftingEngine.tres" id="2_ng3co"]
 [ext_resource type="Script" path="res://examples/inventory_only/PlayerData.gd" id="3_3hgpi"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="4_oflbw"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="4_y8ou3"]
 [ext_resource type="Script" path="res://examples/inventory_only/InventoryInterface.gd" id="5_dn6y0"]
-[ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory/Inventory.tscn" id="6_b2gqk"]
+[ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory/InventoryContainer.tscn" id="6_b2gqk"]
 [ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/Inventory/InventorySlot.tscn" id="7_h6px2"]
+[ext_resource type="PackedScene" uid="uid://cf8inapkeevke" path="res://scenes/Crafting/CraftingStationContainer.tscn" id="10_7i7gy"]
 
 [sub_resource type="Resource" id="Resource_2k73y"]
 script = ExtResource("4_oflbw")
@@ -48,10 +49,10 @@ offset_bottom = 26.0
 [node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("6_b2gqk")]
 visible = false
 layout_mode = 0
-offset_left = 579.0
-offset_top = 324.0
-offset_right = 595.0
-offset_bottom = 340.0
+offset_left = 130.0
+offset_top = 462.0
+offset_right = 146.0
+offset_bottom = 478.0
 
 [node name="SelectedSlot" parent="UI/InventoryInterface" instance=ExtResource("7_h6px2")]
 modulate = Color(1, 1, 1, 0.498039)
@@ -62,5 +63,13 @@ offset_top = 10.0
 offset_right = 74.0
 offset_bottom = 74.0
 
-[connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="toggle_inventory_view"]
+[node name="CraftingStation" parent="UI/InventoryInterface" instance=ExtResource("10_7i7gy")]
+visible = false
+layout_mode = 0
+offset_left = 712.0
+offset_top = 238.0
+offset_right = 728.0
+offset_bottom = 254.0
+
 [connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="_on_crafting_station_toggle_crafting_visible"]
+[connection signal="toggle_crafting_visible" from="CraftingStation" to="." method="toggle_crafting_view"]
