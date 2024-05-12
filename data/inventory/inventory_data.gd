@@ -21,8 +21,8 @@ func get_slot_data(index: int) -> InventorySlot:
 		
 func set_slot_data(slot_data: InventorySlot, index:int) -> InventorySlot:
 	var slot = inventory_slots[index]
-	
 	var to_return: InventorySlot
+
 	if(slot != null and slot.can_merge_fully(slot_data)):
 		slot.merge_inventory_slot(slot_data)
 	else:

@@ -12,7 +12,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func toggle_inventory_view(external_inventory_owner = null) -> void:
 	inventory_interface.visible = !inventory_interface.visible
 	
