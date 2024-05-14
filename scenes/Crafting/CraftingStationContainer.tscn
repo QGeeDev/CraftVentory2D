@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Crafting/CraftingStationContainer.gd" id="1_cbpuc"]
 
-[node name="CraftingStation" type="PanelContainer"]
+[node name="CraftingStationContainer" type="PanelContainer"]
 script = ExtResource("1_cbpuc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

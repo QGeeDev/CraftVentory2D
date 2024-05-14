@@ -1,4 +1,4 @@
-xtends Node2D
+extends Node2D
 
 @onready var inventory_interface: Control = $UI/InventoryInterface
 @onready var player_data = $PlayerData
