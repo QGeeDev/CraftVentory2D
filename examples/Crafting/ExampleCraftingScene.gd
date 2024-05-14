@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var inventory_interface: Control = $UI/CraftingInventoryInterface
 @onready var player_data = $PlayerData
 
 # Called when the node enters the scene tree for the first time.
