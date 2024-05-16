@@ -8,7 +8,11 @@ signal inventory_updated(inventory_data: InventoryData)
 
 func on_slot_clicked(index: int, button: int) -> void:
 	inventory_interact.emit(self, index, button)
-	
+
+func on_read_only_slot_clicked(index: int, button: int) -> void:
+	print_debug("on_read_only_slot_clicked")
+	inventory_interact.emit(self, index, button, true)
+
 func get_slot_data(index: int) -> InventorySlot:
 	var slot = inventory_slots[index]
 	

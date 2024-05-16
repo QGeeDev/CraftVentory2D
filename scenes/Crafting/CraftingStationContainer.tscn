@@ -15,3 +15,14 @@ theme_override_constants/margin_bottom = 8
 [node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
 columns = 6
+
+[node name="ResultMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ResultGrid" type="GridContainer" parent="ResultMarginContainer"]
+layout_mode = 2
+columns = 6
