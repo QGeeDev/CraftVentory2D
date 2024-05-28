@@ -3,10 +3,14 @@
 [ext_resource type="Script" path="res://scenes/Crafting/CraftingStationContainer.gd" id="1_cbpuc"]
 
 [node name="CraftingStationContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(16, 192)
+size_flags_horizontal = 4
+size_flags_vertical = 6
 script = ExtResource("1_cbpuc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -18,6 +22,8 @@ columns = 6
 
 [node name="ResultMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
