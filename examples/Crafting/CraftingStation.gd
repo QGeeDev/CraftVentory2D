@@ -17,4 +17,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx) -> void:
 		
 func check_crafting_recipes(recipe_inventory_data: InventoryData):
 	print_debug("Check Crafting Recipes called")
-	engine.is_valid_recipe(recipe_inventory_data.inventory_slots)
+	var crafted_item = engine.get_crafting_result(recipe_inventory_data.inventory_slots)
+	
+	if crafted_item:
+		result_inventory.set_slot_data(crafted_item, 0)

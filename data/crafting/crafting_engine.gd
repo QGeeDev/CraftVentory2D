@@ -6,32 +6,34 @@ class_name CraftingEngine
 func add_recipe(recipe: CraftingRecipe) -> void:
 	_recipes.append(recipe)
 
-func is_valid_recipe(components: Array[InventorySlot]) -> bool:
+func get_crafting_result(components: Array[InventorySlot]) -> InventorySlot:
 	for recipe in _recipes:
-		if _check_recipe_match(components, recipe):
-			return true
-	return false
+		var output = _check_recipe(components, recipe)
+		if output:
+			return output
+	return null
 
 # TODO: Check if possible to have default case be return false, prevent false positive matches
-func _check_recipe_match(inputComponents: Array[InventorySlot], recipe: CraftingRecipe) -> bool:
+func _check_recipe(inputComponents: Array[InventorySlot], recipe: CraftingRecipe) -> InventorySlot:
 	var recipeComponents = recipe.components
 	if recipeComponents.size() != inputComponents.size():
-		return false
+		return null
 
 	for i in recipeComponents.size():
 		var recipeSlot = recipeComponents[i]
 		var inputSlot = inputComponents[i]
 		
-		if((inputSlot && !recipeSlot) || (recipeSlot && !inputSlot)):
-			return false
-		
 		if(inputSlot==null && recipeSlot == null):
-			return true
+			continue
+		
+		if((inputSlot && !recipeSlot) || (recipeSlot && !inputSlot)):
+			return null
+		
 
 		if(recipeSlot.item_data.id != inputSlot.item_data.id):
-			return false
+			return null
 		
 		if(recipeSlot.quantity > inputSlot.quantity):
-			return false
+			return null
 
-	return true
+	return recipe.output
