@@ -20,7 +20,6 @@ func _on_inventory_interact(inventory_data: InventoryData, index: int, button: i
 		[null, MOUSE_BUTTON_LEFT]:
 			held_slot_data = inventory_data.get_slot_data(index)
 		[_, MOUSE_BUTTON_LEFT]:
-			print_debug("Read only value: %s" % read_only)
 			if(!read_only):
 				held_slot_data = inventory_data.set_slot_data(held_slot_data, index)
 		[null, MOUSE_BUTTON_RIGHT]:
@@ -38,9 +37,7 @@ func update_selected_slot() -> void:
 		held_slot.hide()
 		
 		
-func set_crafting_station(_crafting_station_owner) -> void:
-	crafting_station_owner = _crafting_station_owner
-	
+func set_crafting_station(crafting_station_owner) -> void:
 	var inventory_data = crafting_station_owner.inventory_data
 	inventory_data.inventory_interact.connect(_on_inventory_interact)
 	crafting_station.set_inventory_data(inventory_data)

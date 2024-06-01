@@ -8,14 +8,12 @@ func add_recipe(recipe: CraftingRecipe) -> void:
 
 func is_valid_recipe(components: Array[InventorySlot]) -> bool:
 	for recipe in _recipes:
-		if check_recipe_match(components, recipe):
-			print_debug("Recipe was a match")
+		if _check_recipe_match(components, recipe):
 			return true
-	print_debug("Recipe didn't match")
 	return false
 
 # TODO: Check if possible to have default case be return false, prevent false positive matches
-func check_recipe_match(inputComponents: Array[InventorySlot], recipe: CraftingRecipe) -> bool:
+func _check_recipe_match(inputComponents: Array[InventorySlot], recipe: CraftingRecipe) -> bool:
 	var recipeComponents = recipe.components
 	if recipeComponents.size() != inputComponents.size():
 		return false
@@ -23,6 +21,12 @@ func check_recipe_match(inputComponents: Array[InventorySlot], recipe: CraftingR
 	for i in recipeComponents.size():
 		var recipeSlot = recipeComponents[i]
 		var inputSlot = inputComponents[i]
+		
+		if((inputSlot && !recipeSlot) || (recipeSlot && !inputSlot)):
+			return false
+		
+		if(inputSlot==null && recipeSlot == null):
+			return true
 
 		if(recipeSlot.item_data.id != inputSlot.item_data.id):
 			return false
