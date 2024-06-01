@@ -35,5 +35,6 @@ func _check_recipe(inputComponents: Array[InventorySlot], recipe: CraftingRecipe
 		
 		if(recipeSlot.quantity > inputSlot.quantity):
 			return null
-
-	return recipe.output
+	
+	var output = recipe.output.duplicate()
+	return output

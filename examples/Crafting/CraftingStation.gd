@@ -16,10 +16,9 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx) -> void:
 		toggle_crafting_visible.emit(self)
 		
 func check_crafting_recipes(recipe_inventory_data: InventoryData):
+	result_inventory.clear_slot_data(0)
 	var crafted_item = engine.get_crafting_result(recipe_inventory_data.inventory_slots)
 	
 	if crafted_item:
+		print_debug("Item quantity %s" % crafted_item.quantity)
 		result_inventory.set_slot_data(crafted_item, 0)
-	else :
-		result_inventory.clear_slot_data(0)
-		
