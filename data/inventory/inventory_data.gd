@@ -35,6 +35,10 @@ func set_slot_data(slot_data: InventorySlot, index:int) -> InventorySlot:
 	inventory_updated.emit(self)
 	return to_return
 	
+func clear_slot_data(index: int) -> void:
+	inventory_slots[index] = null
+	inventory_updated.emit(self)
+
 func use_slot_data(index) -> void:
 	var slot_data = inventory_slots[index]
 	
