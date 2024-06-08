@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=10 format=3 uid="uid://d0oinl7sgha8f"]
+
+[ext_resource type="Resource" uid="uid://cf8n217gv8qs5" path="res://examples/resources/items/Planks.tres" id="1_mthe6"]
+[ext_resource type="Script" path="res://data/inventory/inventory_slot.gd" id="2_0kaom"]
+[ext_resource type="Resource" uid="uid://bi8rw3wivnsar" path="res://examples/resources/items/Log.tres" id="3_xjerb"]
+[ext_resource type="Resource" uid="uid://dkqpq2w7gslum" path="res://examples/resources/items/Shield.tres" id="4_4grnx"]
+[ext_resource type="Script" path="res://data/crafting/crafting_recipe.gd" id="5_0o8il"]
+
+[sub_resource type="Resource" id="Resource_kwifj"]
+script = ExtResource("2_0kaom")
+item_data = ExtResource("1_mthe6")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_yec5r"]
+script = ExtResource("2_0kaom")
+item_data = ExtResource("3_xjerb")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_l8slo"]
+script = ExtResource("2_0kaom")
+item_data = ExtResource("1_mthe6")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_2v24s"]
+script = ExtResource("2_0kaom")
+item_data = ExtResource("4_4grnx")
+quantity = 1
+
+[resource]
+script = ExtResource("5_0o8il")
+output = SubResource("Resource_2v24s")
+components = Array[ExtResource("2_0kaom")]([SubResource("Resource_kwifj"), SubResource("Resource_yec5r"), SubResource("Resource_l8slo")])
