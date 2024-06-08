@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jm5kjbljcrti"]
+[gd_scene load_steps=14 format=3 uid="uid://jm5kjbljcrti"]
 
 [ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/Crafting/CraftingStation.tscn" id="1_av6k1"]
 [ext_resource type="Script" path="res://examples/crafting/ExampleCraftingScene.gd" id="1_s1k5w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://examples/inventory_only/PlayerData.gd" id="3_3hgpi"]
 [ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="4_oflbw"]
 [ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="4_y8ou3"]
+[ext_resource type="Script" path="res://data/crafting/crafting_result_inventory_data.gd" id="5_6rjdr"]
 [ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory/InventoryContainer.tscn" id="6_b2gqk"]
 [ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/Inventory/InventorySlotPanel.tscn" id="7_h6px2"]
 [ext_resource type="Script" path="res://examples/crafting/CraftingInventoryInterface.gd" id="7_njx0p"]
@@ -15,8 +16,8 @@
 script = ExtResource("4_oflbw")
 inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null, null, null])
 
-[sub_resource type="Resource" id="Resource_7e8cp"]
-script = ExtResource("4_oflbw")
+[sub_resource type="Resource" id="Resource_5aek0"]
+script = ExtResource("5_6rjdr")
 inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null])
 
 [node name="ExampleCraftingScene" type="Node2D"]
@@ -26,7 +27,7 @@ script = ExtResource("1_s1k5w")
 position = Vector2(866, 136)
 engine = ExtResource("2_ng3co")
 inventory_data = SubResource("Resource_2k73y")
-result_inventory = SubResource("Resource_7e8cp")
+result_inventory = SubResource("Resource_5aek0")
 
 [node name="PlayerData" type="Node2D" parent="."]
 script = ExtResource("3_3hgpi")

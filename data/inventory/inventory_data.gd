@@ -66,3 +66,9 @@ func create_single_slot_data(slot_data: InventorySlot, index: int) -> InventoryS
 	if slot_data.quantity > 0:
 		return slot_data
 	return null
+	
+func is_empty() -> bool:
+	for item in inventory_slots:
+		if item != null:
+			return false
+	return true

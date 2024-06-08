@@ -7,7 +7,7 @@ extends Control
 var held_slot_data: InventorySlot
 var crafting_station_owner
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if(held_slot.visible):
 		held_slot.global_position = get_global_mouse_position() + Vector2(4,4)
 
@@ -37,12 +37,12 @@ func update_selected_slot() -> void:
 		held_slot.hide()
 		
 		
-func set_crafting_station(crafting_station_owner) -> void:
-	var inventory_data = crafting_station_owner.inventory_data
+func set_crafting_station(_crafting_station_owner) -> void:
+	var inventory_data = _crafting_station_owner.inventory_data
 	inventory_data.inventory_interact.connect(_on_inventory_interact)
 	crafting_station.set_inventory_data(inventory_data)
 	
-	var result_inventory_data = crafting_station_owner.result_inventory
+	var result_inventory_data = _crafting_station_owner.result_inventory
 	result_inventory_data.inventory_interact.connect(_on_inventory_interact)
 	crafting_station.set_result_inventory_data(result_inventory_data)
 	crafting_station.show()
