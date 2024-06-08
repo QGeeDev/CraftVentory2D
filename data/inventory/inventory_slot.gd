@@ -8,7 +8,6 @@ const MAX_STACK_SIZE: int = 64;
 
 func set_quantity(val: int) -> void:
 	quantity = val;
-	
 	if quantity > 1 and not item_data.stackable:
 		quantity = 1;
 		push_warning("%s not stackable, setting quantity to 1" % item_data.name);

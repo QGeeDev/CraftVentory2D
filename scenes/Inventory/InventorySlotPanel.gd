@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name InventorySlotPanel
 
 signal slot_clicked(index: int, button: int)
 

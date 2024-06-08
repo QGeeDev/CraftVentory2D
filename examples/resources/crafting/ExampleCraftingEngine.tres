@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CraftingEngine" load_steps=4 format=3 uid="uid://djq8vifmbqcba"]
+
+[ext_resource type="Resource" uid="uid://b87thmbgyhcwf" path="res://examples/resources/crafting/recipes/planks_recipe.tres" id="1_tid3y"]
+[ext_resource type="Resource" uid="uid://d0oinl7sgha8f" path="res://examples/resources/crafting/recipes/shield_recipe.tres" id="2_lcs7d"]
+[ext_resource type="Script" path="res://data/crafting/crafting_engine.gd" id="2_vl8dm"]
+
+[resource]
+script = ExtResource("2_vl8dm")
+_recipes = Array[Resource("res://data/crafting/crafting_recipe.gd")]([ExtResource("1_tid3y"), ExtResource("2_lcs7d")])

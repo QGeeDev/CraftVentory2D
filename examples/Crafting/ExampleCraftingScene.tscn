@@ -1,0 +1,74 @@
+[gd_scene load_steps=14 format=3 uid="uid://jm5kjbljcrti"]
+
+[ext_resource type="PackedScene" uid="uid://cqqi7qf6rqcsk" path="res://examples/Crafting/CraftingStation.tscn" id="1_av6k1"]
+[ext_resource type="Script" path="res://examples/crafting/ExampleCraftingScene.gd" id="1_s1k5w"]
+[ext_resource type="Resource" uid="uid://djq8vifmbqcba" path="res://examples/resources/crafting/ExampleCraftingEngine.tres" id="2_ng3co"]
+[ext_resource type="Script" path="res://examples/inventory_only/PlayerData.gd" id="3_3hgpi"]
+[ext_resource type="Script" path="res://data/inventory/inventory_data.gd" id="4_oflbw"]
+[ext_resource type="Resource" uid="uid://0l3f11er74q8" path="res://examples/resources/inventory/ExampleInventory.tres" id="4_y8ou3"]
+[ext_resource type="Script" path="res://data/crafting/crafting_result_inventory_data.gd" id="5_6rjdr"]
+[ext_resource type="PackedScene" uid="uid://bmolm37tyqifq" path="res://scenes/Inventory/InventoryContainer.tscn" id="6_b2gqk"]
+[ext_resource type="PackedScene" uid="uid://bpq22f1kj6b75" path="res://scenes/Inventory/InventorySlotPanel.tscn" id="7_h6px2"]
+[ext_resource type="Script" path="res://examples/crafting/CraftingInventoryInterface.gd" id="7_njx0p"]
+[ext_resource type="PackedScene" uid="uid://cf8inapkeevke" path="res://scenes/Crafting/CraftingStationContainer.tscn" id="10_7i7gy"]
+
+[sub_resource type="Resource" id="Resource_2k73y"]
+script = ExtResource("4_oflbw")
+inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null, null, null])
+
+[sub_resource type="Resource" id="Resource_5aek0"]
+script = ExtResource("5_6rjdr")
+inventory_slots = Array[Resource("res://data/inventory/inventory_slot.gd")]([null])
+
+[node name="ExampleCraftingScene" type="Node2D"]
+script = ExtResource("1_s1k5w")
+
+[node name="CraftingStationData" parent="." instance=ExtResource("1_av6k1")]
+position = Vector2(866, 136)
+engine = ExtResource("2_ng3co")
+inventory_data = SubResource("Resource_2k73y")
+result_inventory = SubResource("Resource_5aek0")
+
+[node name="PlayerData" type="Node2D" parent="."]
+script = ExtResource("3_3hgpi")
+inventory_data = ExtResource("4_y8ou3")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CraftingInventoryInterface" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("7_njx0p")
+
+[node name="Inventory" parent="UI/CraftingInventoryInterface" instance=ExtResource("6_b2gqk")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 26.0
+
+[node name="SelectedSlot" parent="UI/CraftingInventoryInterface" instance=ExtResource("7_h6px2")]
+modulate = Color(1, 1, 1, 0.498039)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 74.0
+offset_bottom = 74.0
+
+[node name="CraftingStation" parent="UI/CraftingInventoryInterface" instance=ExtResource("10_7i7gy")]
+visible = false
+layout_mode = 0
+offset_left = 712.0
+offset_top = 238.0
+offset_right = 728.0
+offset_bottom = 254.0
+
+[connection signal="toggle_crafting_visible" from="CraftingStationData" to="." method="toggle_crafting_view"]
+[connection signal="toggle_crafting_visible" from="CraftingStationData" to="." method="_on_crafting_station_toggle_crafting_visible"]

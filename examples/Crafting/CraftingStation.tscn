@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqqi7qf6rqcsk"]
+
+[ext_resource type="Script" path="res://examples/crafting/CraftingStation.gd" id="1_g3cki"]
+[ext_resource type="Texture2D" uid="uid://bdspycf2sqq6y" path="res://examples/resources/textures/tiny_dungeon.tres" id="1_tqced"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myclx"]
+
+[node name="CraftingStation" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_g3cki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tqced")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_myclx")
+
+[connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]
