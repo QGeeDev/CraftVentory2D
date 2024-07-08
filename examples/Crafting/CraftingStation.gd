@@ -25,3 +25,8 @@ func check_crafting_recipes(recipe_inventory_data: InventoryData) -> void:
 
 func action_crafting(result_inventory_data: InventoryData) -> void:
 	engine.action_active_recipe(inventory_data, result_inventory_data)
+
+func _unhandled_input(event):
+	if(event.is_action_pressed("save_inventory")):
+		RECIPE_LOADER.save_recipes_to_file(engine._recipes)
+		print_debug("Recipe list saved")
